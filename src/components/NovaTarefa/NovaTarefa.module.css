@@ -1,0 +1,33 @@
+.form {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.input {
+    flex: 1;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.input:focus {
+    border-color: #007bff;
+}
+
+.button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 0.9rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
