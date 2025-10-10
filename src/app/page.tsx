@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <Title title="To-do-List"/>
+        <Title title="Lista de Tarefas"/>
 
         <div className={styles.section}>
           <NovaTarefa aoEnviar={adicionarTarefa} />
