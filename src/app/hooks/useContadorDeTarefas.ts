@@ -7,7 +7,7 @@ const totalTarefas = useMemo(() => tarefas.length, [tarefas]);
 
 const contador = useMemo(() => {
     if (totalTarefas === 0 )
-        return "Nenhuma tarefa adicionada";
+        return "Tarefas adicionadas:";
     if (totalTarefas === 1 )
         return 'Total de tarefas:';
     return `Total de tarefas:`

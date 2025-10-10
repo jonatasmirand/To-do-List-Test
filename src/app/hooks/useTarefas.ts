@@ -15,7 +15,7 @@ export function useTarefas() {
 
     const adicionarTarefa = (dados: NovaTarefa) => {
         const nova: Tarefa = {
-            id: Math.floor(Math.random() * 100000), 
+            id: Date.now() + Math.floor(Math.random() * 1000),
             tarefa: dados.tarefa,
         };
         tarefasFake.push(nova);
@@ -37,6 +37,6 @@ export function useTarefas() {
         carregarTarefas();
     }, []);
 
-    
+
     return { tarefas, adicionarTarefa, removerTarefa };
 }

@@ -10,15 +10,23 @@ type Props = {
 
 const NovaTarefa = ({ aoEnviar }: Props) => {
     const [tarefa, setTarefa] = useState('');
+    const [erro, setErro] = useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
+        if(tarefa.trim()===""){
+            setErro('Digite uma tarefa antes de adicionar!');
+            return;
+        }
+
+        setErro('')
         aoEnviar({ tarefa });
         setTarefa("");
     };
 
     return (
+        <>
         <form className={styles.form}
         onSubmit={handleSubmit}>
 
@@ -34,8 +42,10 @@ const NovaTarefa = ({ aoEnviar }: Props) => {
                 className={styles.button}
                 type="submit">Adicionar
             </button>
-
         </form>
+
+        {erro && <p className={styles.erro}>{erro}</p>}
+        </>
     )
 };
 

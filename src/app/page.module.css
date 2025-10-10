@@ -11,6 +11,8 @@
 }
 
 .card {
+  max-width: 400px;
+  margin: 50px auto;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -21,6 +23,8 @@
   width: 380px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   text-align: center;
+  overflow-y: auto;
+  max-height: 80vh;
 }
 
 .section {
@@ -41,22 +45,72 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
-  padding: 0.6rem 0.8rem;
-  border-radius: 6px;
-  margin-bottom: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease;
 }
 
 .btnRemover {
-  background-color: #fff;
-  color:#000;
- border: 2px solid #000;  border-radius: 6px;
-  padding: 0.4rem 0.7rem;
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 6px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: background 0.2s ease;
 }
 
 .btnRemover:hover {
   background-color: #655d5d;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 95%;
+    margin: 40px auto;
+    padding: 15px;
+  }
+
+  .tarefa {
+    padding: 8px 10px;
+  }
+
+  .tarefaTexto {
+    font-size: 15px;
+  }
+
+  .btnRemover {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-width: 100%;
+    border-radius: 0;
+    height: 100vh;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .tarefa {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .tarefaTexto {
+    font-size: 14px;
+  }
+
+  .btnRemover {
+    font-size: 14px;
+    padding: 5px 7px;
+  }
+
+  .footer {
+    font-size: 12px;
+  }
 }
