@@ -51,19 +51,33 @@
   padding: 10px 12px;
   margin-bottom: 10px;
   transition: transform 0.2s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  max-width: 100%;
 }
 
-.btnRemover {
-  background: transparent;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 6px;
-  cursor: pointer;
-  transition: background 0.2s ease;
+.tarefaConteudo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.btnRemover:hover {
-  background-color: #655d5d;
+.btnLimpar {
+    margin-top: 1rem;
+    padding: 0.6rem 1rem;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btnLimpar:hover {
+    background-color: #655d5d;
 }
 
 @media (max-width: 768px) {
@@ -79,10 +93,6 @@
 
   .tarefaTexto {
     font-size: 15px;
-  }
-
-  .btnRemover {
-    padding: 5px;
   }
 }
 
@@ -103,11 +113,6 @@
 
   .tarefaTexto {
     font-size: 14px;
-  }
-
-  .btnRemover {
-    font-size: 14px;
-    padding: 5px 7px;
   }
 
   .footer {
