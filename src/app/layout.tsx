@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
-import styles from './globals.module.css'
-import './globals.css'
+import styles from "./globals.module.css";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "To-do-list",
-  description: "A To-do-list vai te ajudar a organizar as suas tarefas ou itens conta-los, editar e remover quando for preciso",
+  description:
+    "A To-do-list vai te ajudar a organizar as suas tarefas ou itens conta-los, editar e remover quando for preciso",
 };
 
 export default function RootLayout({
@@ -17,7 +18,7 @@ export default function RootLayout({
     <html lang="pt">
       <body className={styles.container}>
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

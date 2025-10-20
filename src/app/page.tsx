@@ -10,7 +10,13 @@ import Title from "@/components/Title";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const { tarefas, adicionarTarefa, removerTarefa, editarTarefa, limparTarefas } = useTarefas();
+  const {
+    tarefas,
+    adicionarTarefa,
+    removerTarefa,
+    editarTarefa,
+    limparTarefas,
+  } = useTarefas();
   const { totalTarefas, contador } = useContadorDeTarefas(tarefas);
 
   const [editandoId, setEditandoId] = useState<number | null>(null);

@@ -21,10 +21,10 @@ Uma aplicação **To-do-List** desenvolvida com **Next.js**, **React** e **TypeS
 
 ## 🛠 Tecnologias
 
-- [Next.js](https://nextjs.org/)  
-- [React](https://reactjs.org/)  
-- [TypeScript](https://www.typescriptlang.org/)  
-- [CSS Modules](https://github.com/css-modules/css-modules)  
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [CSS Modules](https://github.com/css-modules/css-modules)
 - [Jest](https://jestjs.io/) + [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
 
 ---
@@ -83,8 +83,8 @@ yarn dev
 Acesse em http://localhost:3000
 ```
 
-
 ## 🧪 Testes
+
 ```
 Execute todos os testes com:
 

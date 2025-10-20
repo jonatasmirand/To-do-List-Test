@@ -10,9 +10,8 @@ body {
   overflow-x: hidden;
 }
 
-
 @media (max-width: 480px) {
   body {
-    background-attachment: scroll; 
+    background-attachment: scroll;
   }
-} 
+}

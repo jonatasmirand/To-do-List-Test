@@ -1,26 +1,19 @@
 import { renderHook, act } from "@testing-library/react";
 import { useTarefas } from "@/app/hooks/useTarefas";
 
+test("Adiciona uma tarefa corretamente", async () => {
+  const { result } = renderHook(() => useTarefas());
 
-jest.mock("./index")
+  // Inicialmente deve estar vazio
+  expect(result.current.tarefas).toEqual([]);
 
-test('Retorna a tarefa adicionada', async () => {
+  // Adiciona uma nova tarefa
+  await act(async () => {
+    await result.current.adicionarTarefa({ tarefa: "Aprender Jest" });
+  });
 
-    const { result } = renderHook(() => useTarefas());
-
-    await act(async () => { });
-
-    expect(result.current.tarefas).toEqual([
-        { id: 1, tarefa: "Estudar React" },
-        { id: 2, tarefa: "Ler sobre TypeScript" },
-    ]);
-
-    await act(async () => {
-        await result.current.adicionarTarefa({ tarefa: "Aprender Jest" });
-    });
-
-    expect(result.current.tarefas).toContainEqual(
-        expect.objectContaining({ tarefa: "Aprender Jest" })
-    );
+  // Verifica se foi adicionada
+  expect(result.current.tarefas).toContainEqual(
+    expect.objectContaining({ tarefa: "Aprender Jest" })
+  );
 });
-
