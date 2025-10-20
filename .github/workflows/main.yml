@@ -8,20 +8,21 @@ on:
   workflow_dispatch: # habilitar o botão "Run workflow" no Github actions
   
 jobs: 
+  # Primeiro job: build
   build:
     runs-on: ubuntu-latest # imagem da maquina que vai ser usada no CI
     
     steps:
-      - name: checkout do código
-      - uses: actions/checkout@v5
+      - name: Checkout do código
+        uses: actions/checkout@v5
       
-      - name: instalação do node
-      - uses: actions/setup-node@v4
+      - name: Instalação do Node
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: instalação das dependências    
-      - run: npm install 
+      - name: Instalação das dependências    
+        run: npm install 
 
-      - name: rodar o build
-      - run: npm run build
+      - name: Rodar o build
+        run: npm run build
