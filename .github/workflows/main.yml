@@ -47,6 +47,12 @@ jobs:
           Caches: "npm"
           caches-dependency-patch: package-lock.json
 
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Instalar ESLint (se faltar)
+        run: npm install eslint --save-dev
+      
       - name: Rodar o lint    
         run: npm run lint
 
