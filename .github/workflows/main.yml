@@ -56,8 +56,8 @@ jobs:
       - name: Rodar o lint
         run: npm run lint
 
-      - name: Verificar formatação
-        run: npm run prettier -- -- check
+      - name:  Verificar formatação (Prettier)
+        run: npx prettier . --check
 
       - name: Rodar tests
         run: npm run test
