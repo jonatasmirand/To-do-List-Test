@@ -1,5 +1,6 @@
+# Nome do workflow,
 name: Pipeline CI/CD
-
+# Quando o pipeline será disparado
 on: 
   push:
     branches:
