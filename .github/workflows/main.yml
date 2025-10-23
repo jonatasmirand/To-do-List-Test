@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - "src/**"
+      - "app/**"
+      - "components/**"
       - ".github/workflows/**"
   workflow_dispatch:
 
@@ -48,12 +50,15 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
-      - name: Instalar ESLint (se faltar)
-        run: npm install eslint --save-dev
-
       - name: Rodar o lint
         run: npm run lint
 
+      - name: Verificar formatação (Prettier)
+        run: npx prettier . --check
+
+      - name: Rodar testes
+        run: npm run test
+      
   deploy:
     runs-on: ubuntu-latest
     needs: tests
