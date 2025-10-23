@@ -1,19 +1,19 @@
-# Nome do workflow,
 name: Pipeline CI/CD
-# Quando o pipeline será disparado
+
 on:
   push:
     branches:
       - main
-    paths: # Só se arquivos nessa página forem alterados
-      - "src/**" # Só mudanças no código fonte
-      - ".github/workflows/**" # Mudanças no próprio Pipelines
-  workflow_dispatch: # habilitar o botão "Run workflow" no Github actions
+    paths:
+      - "src/**"
+      - "app/**"
+      - "components/**"
+      - ".github/workflows/**"
+  workflow_dispatch:
 
 jobs:
-  # Primeiro job: build
   build:
-    runs-on: ubuntu-latest # imagem da maquina que vai ser usada no CI
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout do código
@@ -23,8 +23,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          Caches: "npm"
-          caches-dependency-patch: package-lock.json
+          cache: "npm"
+          cache-dependency-path: package-lock.json
 
       - name: Instalação das dependências
         run: npm install
@@ -44,14 +44,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          Caches: "npm"
-          caches-dependency-patch: package-lock.json
+          cache: "npm"
+          cache-dependency-path: package-lock.json
 
       - name: Instalar dependências
         run: npm ci
-
-      - name: Instalar ESLint (se faltar)
-        run: npm install eslint --save-dev
 
       - name: Rodar o lint
         run: npm run lint
@@ -59,6 +56,9 @@ jobs:
       - name: Verificar formatação (Prettier)
         run: npx prettier . --check
 
+      - name: Rodar testes
+        run: npm run test
+      
   deploy:
     runs-on: ubuntu-latest
     needs: tests
@@ -71,14 +71,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          Caches: "npm"
-          caches-dependency-patch: package-lock.json
+          cache: "npm"
+          cache-dependency-path: package-lock.json
 
       - name: Instalar Vercel CLI
         run: npm install -g vercel@latest
 
       - name: Deploy pra Vercel
-        run: vercel --prod --yes --token=${{secrets.VERCEL_TOKEN}}
         env:
-          VERCEL_ORG_ID: ${{secrets.VERCEL_ORG_ID}}
-          VERCEL_PROJECT_ID: ${{secrets.VERCEL_PROJECT_ID}}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: vercel --prod --yes --token=$VERCEL_TOKEN 
