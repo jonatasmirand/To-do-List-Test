@@ -6,6 +6,9 @@
 ![CSS Modules](https://img.shields.io/badge/CSS_Modules-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ---
 
+![Status](https://github.com/jonatasmirand/To-do-List-Test/actions/workflows/main.yml/badge.svg)
+
+
 ## 🚀 Deploy
 O projeto está disponível em produção no Vercel:  
 👉 [https://to-do-list-test-inky.vercel.app/](https://to-do-list-test-inky.vercel.app/)
